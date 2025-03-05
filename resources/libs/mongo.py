@@ -1,7 +1,13 @@
 from robot.api.deco import keyword
 from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 
-client = MongoClient('mongodb+srv://qax:xperience@cluster0.5ellpav.mongodb.net/markx?retryWrites=true&w=majority&appName=Cluster0')
+load_dotenv()
+
+database_url = os.getenv("MONGO_URI")
+
+client = MongoClient(database_url)
 
 db = client['markx']
 
